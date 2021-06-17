@@ -17,11 +17,11 @@ extension JSONEncoder {
             
             // Mac: Output to file on the user's Desktop
             let homeURL = FileManager.default.homeDirectoryForCurrentUser
-            let desktopURL = homeURL.appendingPathComponent("Desktop")
-            let fileURL = desktopURL.appendingPathComponent("Output.json")
+            let fileURL = homeURL.appendingPathComponent("Desktop/Output.json")
             
             do {
                 try jsonString?.write(to: fileURL, atomically: true, encoding: .utf8)
+                print("Output.json file saved to Desktop")
             } catch {
                 print(error.localizedDescription)
             }
